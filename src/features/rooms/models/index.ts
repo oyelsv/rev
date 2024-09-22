@@ -1,2 +1,2 @@
-export type { RoomTypeEnum } from './roomTypeEnum';
-export type { Room } from './rooms';
+export * from './roomTypeEnum';
+export * from './rooms';

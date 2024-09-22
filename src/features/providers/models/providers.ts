@@ -1,4 +1,4 @@
-import { ProviderQualificationsEnum } from '@/features/providers';
+import { ProviderQualificationsEnum } from './providerQualificationsEnum';
 
 export interface Provider {
   id: string;

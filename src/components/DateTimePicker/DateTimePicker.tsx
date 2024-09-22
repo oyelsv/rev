@@ -1,45 +1,11 @@
 'use client';
 
 import React from 'react';
-import { format } from 'date-fns';
 
-import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Calendar } from '@/components/ui/calendar';
+import { TimeSlots } from '@/components/TimeSlots';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-
-interface TimeLabelProps {
-  date: Date | undefined;
-  timeSlots: string[];
-  onSelectTimeSlot?: (slot: string) => void;
-}
-
-export default function TimeSlots({
-  date = new Date(),
-  timeSlots = ['9:00 am', '10:00 am', '11:00 am'],
-  onSelectTimeSlot,
-}: TimeLabelProps) {
-  const formattedDate = format(date, 'MMMM do');
-
-  return (
-    <div className="px-1">
-      <h2 className="leading-7 [&:not(:first-child)]:mt-2 mb-2">Today, {formattedDate}</h2>
-      <div className="flex gap-1">
-        {timeSlots.map((slot, index) => (
-          <Button
-            size="sm"
-            variant="outline"
-            /* eslint-disable-next-line react/no-array-index-key */
-            key={index}
-            onClick={() => onSelectTimeSlot && onSelectTimeSlot(slot)}
-          >
-            <span className="text-sm font-medium">{slot}</span>
-          </Button>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export function DateTimePicker() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
@@ -61,11 +27,7 @@ export function DateTimePicker() {
         </div>
       </div>
       <Separator className="my-2" />
-      <TimeSlots
-        date={date}
-        timeSlots={['4:30 pm', '5:30 pm', '6:30 pm']}
-        onSelectTimeSlot={() => console.log(12345)}
-      />
+      <TimeSlots date={date} timeSlots={['4:30 pm', '5:30 pm', '6:30 pm']} />
     </div>
   );
 }

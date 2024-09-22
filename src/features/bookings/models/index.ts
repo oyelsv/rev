@@ -1,1 +1,1 @@
-export type { Booking } from './bookings';
+export * from './bookings';
